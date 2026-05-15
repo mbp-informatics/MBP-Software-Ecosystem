@@ -1,0 +1,42 @@
+
+flowchart TB
+
+%% Users
+    Investigators[Investigators]
+    Operations[Laboratory Operations]
+    CustomerService[Customer Service]
+    Consortium[MMRRC / IMPC / MBP Programs]
+
+%% Core systems
+    subgraph Core["Integrated Research Software Ecosystem"]
+        Pheno[Pheno-LIMS\nPhenotyping]
+        Geno[Geno-LIMS\nGenotyping]
+        Repro[Repro-LIMS\nMouse Engineering & RT]
+    end
+
+%% External systems
+    Mosaic[Mosaic Vivarium System]
+    OTS[MMRRC Order Tracking]
+    PTS[Project Tracking System]
+    DCC[IMPC / External Data Resources]
+    Cryo[Cryogenic Inventory]
+    Publications[Publications & Reporting]
+
+%% User interactions
+    Investigators --> Core
+    Operations --> Core
+    CustomerService --> Core
+    Consortium --> Core
+
+%% Internal interactions
+    Pheno <--> Geno
+    Geno <--> Repro
+    Repro <--> Pheno
+
+%% External integrations
+    Core --> Mosaic
+    Core --> OTS
+    Core --> PTS
+    Core --> DCC
+    Repro --> Cryo
+    Core --> Publications
