@@ -10,7 +10,7 @@ flowchart LR
     YouTrack[YouTrack Ticketing System]
 
 %% Core systems
-    subgraph Core["Integrated Research Software Ecosystem"]
+    subgraph Core["Integrated MBP Scientific Workflow Infrastructure"]
         direction TB
         Pheno[Pheno-LIMS\nPhenotyping]
         Geno[Geno-LIMS\nGenotyping]
@@ -47,7 +47,7 @@ flowchart LR
     Core <--> MMPCOrders
     Core <--> Mosaic
     Core <--> OTS
-    Core --> PTS
+    Core <--> PTS
     Core <--> DCC
     Repro <---> MGI
     Repro --> MMRRCRepository

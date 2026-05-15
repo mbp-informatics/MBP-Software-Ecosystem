@@ -8,8 +8,9 @@ Geno-LIMS is the in-house genotyping laboratory information management system fo
 
 Pheno-LIMS is the Mouse Biology Program phenotyping laboratory information management system. It schedules, tracks, collects, validates, stores, visualizes, and submits mouse phenotyping data, supporting technician bench workflows, instrument file parsing, validation feedback, QC review, reporting, and IMPC/DCC data submission for KOMP and other phenotyping projects.
 
-Together, these systems describe the lifecycle of engineered mice across the MBP ecosystem. Mice produced in Repro-LIMS are validated through Geno-LIMS and then move on to characterization workflows in Pheno-LIMS. Mice can also enter each system as standalone projects depending on investigator needs. While the LIMS applications are built to support large high-throughput projects, they remain flexible enough for ad hoc and project-specific work. Mice produced as part of the KOMP project are also added to the MMRRC catalog, and phenotyping data generated from these mice are uploaded to IMPC / external data resources for downstream discovery and reporting.
+Together, these systems describe the lifecycle of engineered mice across the MBP ecosystem. Mice produced in Repro-LIMS are validated through Geno-LIMS and then move on to characterization workflows in Pheno-LIMS. Mice can also enter each system as standalone projects depending on investigator needs. While the LIMS applications are built to support large high-throughput pipeline projects, they remain flexible enough for ad hoc and project-specific work. Mice produced as part of the KOMP project are also added to the MMRRC catalog, and phenotyping data generated from these mice are uploaded to IMPC / external data resources for downstream discovery and reporting.
 
+Collectively, these interoperable systems provide operational and scientific infrastructure supporting mouse engineering, genotyping, phenotyping, repository operations, cryogenic recovery workflows, and consortium-scale data coordination.
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 16, "rankSpacing": 32}} }%%
 flowchart LR
@@ -22,7 +23,7 @@ flowchart LR
     YouTrack[YouTrack Ticketing System]
 
 %% Core systems
-    subgraph Core["Integrated Research Software Ecosystem"]
+    subgraph Core["Integrated MBP Scientific Workflow Infrastructure"]
         direction TB
         Pheno[Pheno-LIMS\nPhenotyping]
         Geno[Geno-LIMS\nGenotyping]
@@ -59,7 +60,7 @@ flowchart LR
     Core <--> MMPCOrders
     Core <--> Mosaic
     Core <--> OTS
-    Core --> PTS
+    Core <--> PTS
     Core <--> DCC
     Repro <---> MGI
     Repro --> MMRRCRepository
