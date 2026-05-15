@@ -7,6 +7,7 @@ flowchart LR
     Operations[Laboratory Operations]
     CustomerService[Customer Service & Project Management]
     Consortium[MMRRC / IMPC / MBP Programs]
+    YouTrack[YouTrack Ticketing System]
 
 %% Core systems
     subgraph Core["Integrated Research Software Ecosystem"]
@@ -19,11 +20,13 @@ flowchart LR
 %% External systems
     subgraph External[" "]
         direction TB
+        MMPCOrders[MMPC order tracking]
         Mosaic[Mosaic Vivarium System]
         OTS[MMRRC Order Tracking]
         PTS[Project Tracking System]
         DCC[IMPC / External Data Resources]
         MGI[MGI]
+        MMRRCRepository[MMRRC Repository]
         Cryo[Cryogenic Inventory]
         Publications[Publications & Reporting]
     end
@@ -33,6 +36,7 @@ flowchart LR
     Operations --> Core
     CustomerService --> Core
     Consortium --> Core
+    YouTrack <--> Core
 
 %% Internal interactions
     Pheno <--> Geno
@@ -40,11 +44,13 @@ flowchart LR
     Repro <--> Pheno
 
 %% External integrations
+    Core <--> MMPCOrders
     Core <--> Mosaic
     Core <--> OTS
     Core --> PTS
     Core <--> DCC
-    Repro <---- MGI
+    Repro <---> MGI
+    Repro --> MMRRCRepository
     Repro --> Cryo
     Core --> Publications
 
